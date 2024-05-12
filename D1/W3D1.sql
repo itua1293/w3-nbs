@@ -56,8 +56,6 @@
 	SELECT CONCAT(title,', rating:',rating) AS descriptor
 	FROM sakila.film;
 
-
-
 	/* perform a query with a condition */
 
 	SELECT * 
