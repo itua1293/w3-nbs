@@ -47,7 +47,6 @@
     ON sakila.film_actor.film_id = selected_films_id.film_id) AS selected_actors
     ON sakila.actor.actor_id = selected_actors.actor_id;
 
-
 /* TEMPORARY TABLES */
     /* Now this new table can be used as a Temp -> ADVANCED TOPIC */
     CREATE TEMPORARY TABLE sakila.new_table
@@ -73,3 +72,149 @@
     /* Now we can use that table in other queries */
     SELECT *
     FROM sakila.new_table;
+
+/* VIEWS */
+    USE sakila;
+    -- Drop the view if it already exists
+    DROP VIEW IF EXISTS actor_categories;
+
+    -- Create a new view
+    CREATE VIEW actor_categories AS
+    SELECT 
+        actor_id,
+        first_name,
+        last_name,
+        COUNT(film_id) AS total_films,
+        CASE
+            WHEN COUNT(film_id) >= 30 THEN 'Star Actor'
+            WHEN COUNT(film_id) >= 15 THEN 'Frequent Actor'
+            ELSE 'Occasional Actor'
+        END AS actor_category
+    FROM 
+        actor
+    JOIN 
+        film_actor ON actor.actor_id = film_actor.actor_id
+    GROUP BY 
+        actor_id
+    ORDER BY 
+        total_films DESC;
+
+    SELECT `actor_categories`.`actor_id`,
+        `actor_categories`.`first_name`,
+        `actor_categories`.`last_name`,
+        `actor_categories`.`total_films`,
+        `actor_categories`.`actor_category`
+    FROM `sakila`.`actor_categories`;
+
+
+
+/* ACTION QUERIES */
+    /* Create Database */
+    DROP DATABASE IF EXISTS ironhack_dapt;
+    CREATE DATABASE ironhack_dapt;
+
+    /* Select Database */
+    USE ironhack_dapt;
+
+    /* Create Customer Table */
+    CREATE TABLE Customer (
+        CustomerID VARCHAR(50),
+        CustomerName VARCHAR(100),
+        Segment VARCHAR(50),
+        Age INT,
+        Country VARCHAR(50),
+        City VARCHAR(50),
+        State VARCHAR(50),
+        PostalCode INT,
+        Region VARCHAR(50)
+    );
+
+    /* Create Product Table */
+    CREATE TABLE Product (
+        ProductID VARCHAR(50),
+        Category VARCHAR(50),
+        SubCategory VARCHAR(50),
+        ProductName VARCHAR(200)
+    );
+
+    /* Create Sales Table */
+    CREATE TABLE Sales (
+        OrderLine INT,
+        OrderID VARCHAR(50),
+        OrderDate DATE,
+        ShipDate DATE,
+        ShipMode VARCHAR(50),
+        CustomerID VARCHAR(50),
+        ProductID VARCHAR(50),
+        Sales DECIMAL,
+        Quantity INT,
+        Discount DECIMAL,
+        Profit DECIMAL
+    );
+
+    /* Create Student Table */
+    CREATE TABLE Student (
+        EnrollmentNO INT,
+        Name VARCHAR(100),
+        ScienceMarks INT
+    );
+
+    /* Query to Select From Student Table */
+    USE ironhack_dapt;
+    SELECT * FROM Student;
+
+
+
+
+/* Advance Queries */
+    /* CASE STATEMENT */
+    USE sakila;
+    SELECT 
+        actor.actor_id,
+        first_name,
+        last_name,
+        COUNT(film_id) AS total_films,
+        CASE
+            WHEN COUNT(film_id) >= 30 THEN 'Star Actor'
+            WHEN COUNT(film_id) >= 15 THEN 'Frequent Actor'
+            ELSE 'Occasional Actor'
+        END AS actor_category
+    FROM 
+        actor
+    JOIN 
+        film_actor ON actor.actor_id = film_actor.actor_id
+    GROUP BY 
+        actor_id
+    ORDER BY 
+        total_films DESC;
+
+    
+    -- STRINGS
+    -- Example: Find the length of film titles
+    SELECT title, LENGTH(title) AS title_length
+    FROM film
+    WHERE rental_duration > 5;
+
+    -- Example: Convert film titles to uppercase and lowercase
+    SELECT UPPER(title) AS title_upper, LOWER(title) AS title_lower
+    FROM film
+    LIMIT 10;
+
+    -- Example: Replace 'Trail' with 'Path' in film descriptions
+    SELECT description, REPLACE(description, 'Amazing', 'IRONHACK') AS new_description
+    FROM film
+
+    -- Example: Concatenate actor's first and last names into a full name
+    SELECT CONCAT(first_name, ' ', last_name) AS full_name
+    FROM actor
+    LIMIT 10;
+
+    -- Example: Extract a part of the film description
+    SELECT description, SUBSTRING(description, 1, 50) AS snippet
+    FROM film
+    WHERE film_id = 1;
+
+    -- Example: Concatenate all actor names for each film
+    SELECT film_id, GROUP_CONCAT(actor_id ORDER BY actor_id SEPARATOR ', ') AS actor_ids
+    FROM film_actor
+    GROUP BY film_id;
