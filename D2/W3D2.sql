@@ -109,60 +109,22 @@
 
 
 /* ACTION QUERIES */
-    /* Create Database */
-    DROP DATABASE IF EXISTS ironhack_dapt;
-    CREATE DATABASE ironhack_dapt;
 
-    /* Select Database */
-    USE ironhack_dapt;
-
-    /* Create Customer Table */
-    CREATE TABLE Customer (
-        CustomerID VARCHAR(50),
-        CustomerName VARCHAR(100),
-        Segment VARCHAR(50),
-        Age INT,
-        Country VARCHAR(50),
-        City VARCHAR(50),
-        State VARCHAR(50),
-        PostalCode INT,
-        Region VARCHAR(50)
+    CREATE DATABASE IF NOT EXISTS temp_sakila;
+    USE temp_sakila;
+    CREATE TABLE example_table (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255)
     );
 
-    /* Create Product Table */
-    CREATE TABLE Product (
-        ProductID VARCHAR(50),
-        Category VARCHAR(50),
-        SubCategory VARCHAR(50),
-        ProductName VARCHAR(200)
-    );
+    ALTER TABLE example_table ADD COLUMN age INT;
+    INSERT INTO example_table (name, email, age) VALUES ('John Doe', 'john.doe@example.com', 30);
+    UPDATE example_table SET email = 'new.email@example.com' WHERE id = 1;
 
-    /* Create Sales Table */
-    CREATE TABLE Sales (
-        OrderLine INT,
-        OrderID VARCHAR(50),
-        OrderDate DATE,
-        ShipDate DATE,
-        ShipMode VARCHAR(50),
-        CustomerID VARCHAR(50),
-        ProductID VARCHAR(50),
-        Sales DECIMAL,
-        Quantity INT,
-        Discount DECIMAL,
-        Profit DECIMAL
-    );
 
-    /* Create Student Table */
-    CREATE TABLE Student (
-        EnrollmentNO INT,
-        Name VARCHAR(100),
-        ScienceMarks INT
-    );
-
-    /* Query to Select From Student Table */
-    USE ironhack_dapt;
-    SELECT * FROM Student;
-
+    DROP TABLE IF EXISTS example_table;
+    DROP DATABASE IF EXISTS temp_sakila;
 
 
 
