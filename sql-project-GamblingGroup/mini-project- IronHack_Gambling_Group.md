@@ -12,15 +12,15 @@ You have been given access to four critical database tables of the IronHack Gamb
 
 - The challenge starts with simple queries and gradually increases in complexity.
 - For each question, write your SQL query to find the answer.
-- Although the original data is in Excel, focus only on writing SQL queries as if the data were in a SQL database.
+- Although the original data is in Excel, focus only on writing SQL queries as if the data were in a SQL database. Whether you test it in MySQL or not is up to you.
 
 ## Questions
 
-- **Question 01**:  Using the customer table or tab, please write an SQL query that shows Title, First Name and Last Name and Date of Birth for each of the customers. You won’t need to do anything in Excel for this one.
+- **Question 01**:  Using the customer table or tab, please write an SQL query that shows Title, First Name and Last Name and Date of Birth for each of the customers.
 - **Question 02**:  Using customer table or tab, please write an SQL query that shows the number of customers in each customer group (Bronze, Silver & Gold). I can see visually that there are 4 Bronze, 3 Silver and 3 Gold but if there were a million customers how would I do this in Excel?
-- **Question 03**: The CRM manager has asked me to provide a complete list of all data for those customers in the customer table but I need to add the currencycode of each player so she will be able to send the right offer in the right currency. Note that the currencycode does not exist in the customer table but in the account table. Please write the SQL that would facilitate this. How would I do this in Excel if I had a much larger data set?
-- **Question 04**: Now I need to provide a product manager with a summary report that shows, by product and by day how much money has been bet on a particular product. PLEASE note that the transactions are stored in the betting table and there is a product code in that table  that is required to be looked up (classid & categortyid) to determine which product family this belongs to. Please write the SQL that would provide the report. If you imagine that this was a much larger data set in Excel, how would you provide this report in Excel?
-- **Question 05**: You’ve just provided the report from question 4 to the product manager, now he has emailed me and wants it changed. Can you please amend the summary report so that it only summarises transactions that occurred on or after 1st November and he only wants to see Sportsbook transactions.Again, please write the SQL below that will do this. If I were delivering this via Excel, how would I do this?
+- **Question 03**: The CRM manager has asked me to provide a complete list of all data for those customers in the customer table but I need to add the currencycode of each player so she will be able to send the right offer in the right currency. Note that the currencycode does not exist in the customer table but in the account table. Please write the SQL that would facilitate this. *BONUS:* How would I do this in Excel if I had a much larger data set?
+- **Question 04**: Now I need to provide a product manager with a summary report that shows, by product and by day how much money has been bet on a particular product. PLEASE note that the transactions are stored in the betting table and there is a product code in that table  that is required to be looked up (classid & categortyid) to determine which product family this belongs to. Please write the SQL that would provide the report. *BONUS:* If you imagine that this was a much larger data set in Excel, how would you provide this report in Excel?
+- **Question 05**: You’ve just provided the report from question 4 to the product manager, now he has emailed me and wants it changed. Can you please amend the summary report so that it only summarises transactions that occurred on or after 1st November and he only wants to see Sportsbook transactions.Again, please write the SQL below that will do this. *BONUS:* If I were delivering this via Excel, how would I do this?
 - **Question 06**: As often happens, the product manager has shown his new report to his director and now he also wants different version of this report. This time, he wants the all of the products but split by the currencycode and customergroup of the customer, rather than by day and product. He would also only like transactions that occurred after 1st December. Please write the SQL code that will do this.
 - **Question 07**: Our VIP team have asked to see a report of all players regardless of whether they have done anything in the complete timeframe or not. In our example, it is possible that not all of the players have been active. Please write an SQL query that shows all players Title, First Name and Last Name and a summary of their bet amount for the complete period of November.
 - **Question 08**: Our marketing and CRM teams want to measure the number of players who play more than one product. Can you please write 2 queries, one that shows the number of products per player and another that shows players who play both Sportsbook and Vegas.
@@ -33,15 +33,15 @@ Looking at the abstract data on the "Student_School" tab into the Excel spreadsh
 - **Question 12**: Write a query that returns the number of students in each school. (a school should be in the output even if it has no students!)
 - **Question 13**: Write a query that returns the top 3 GPA students' name from each university.
 
-## How to Participate
+## Tips to Participate
 
-- Write or type your SQL answers for each question in this document.
+- Write or type your SQL answers for each question in a document.
 - Feel free to use a separate editor to draft your queries before pasting them here.
 - Ensure your queries are well-formatted and easy to understand.
 
 ## Submission
 
-- Once you have completed the challenge, submit your answers before the following class.
+- Once you have completed the challenge, submit your answers.
 - Showcase your SQL skills and data manipulation expertise.
 
 ## Good luck!
