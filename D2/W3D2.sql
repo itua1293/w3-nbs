@@ -113,7 +113,7 @@
     CREATE DATABASE IF NOT EXISTS temp_sakila;
     USE temp_sakila;
     CREATE TABLE example_table (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        id INT AUTO_INCREMENT PRIMARY KEYå,
         name VARCHAR(255) NOT NULL,
         email VARCHAR(255)
     );
@@ -125,6 +125,7 @@
 
     DROP TABLE IF EXISTS example_table;
     DROP DATABASE IF EXISTS temp_sakila;
+
 
 
 
